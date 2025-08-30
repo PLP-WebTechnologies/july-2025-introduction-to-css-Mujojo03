@@ -1,0 +1,447 @@
+/* ===== CSS VARIABLES FOR CONSISTENT THEMING ===== */
+:root {
+  --primary-color: #8F1F09;
+  --primary-dark: #5e1306;
+  --secondary-color: #64748b;
+  --accent-color: #f59e0b;
+  --background-light: #f8fafc;
+  --background-white: #ffffff;
+  --text-dark: #1e293b;
+  --text-light: #64748b;
+  --border-color: #e2e8f0;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== GENERAL RESET & BASE STYLES ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background: linear-gradient(135deg, var(--background-light) 0%, #e2e8f0 100%);
+  color: var(--text-dark);
+  min-height: 100vh;
+}
+
+/* ===== HEADER STYLES ===== */
+header {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  border-bottom: 4px solid var(--primary-dark);
+  box-shadow: var(--shadow);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+/* ===== NAVIGATION STYLES ===== */
+nav {
+  background: var(--background-white);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 1rem;
+  gap: 2rem;
+}
+
+nav ul li a {
+  color: var(--text-dark);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+nav ul li a:hover {
+  color: var(--primary-color);
+  background: var(--background-light);
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+nav ul li a:hover::after {
+  width: 80%;
+}
+
+/* ===== MAIN CONTENT AREA ===== */
+main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: grid;
+  gap: 2rem;
+}
+
+/* ===== CARD SECTIONS (BOX MODEL DEMONSTRATION) ===== */
+.card {
+  background: var(--background-white);
+  padding: 2rem;
+  border: 2px solid var(--border-color);
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary-color);
+}
+
+.card h2 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.card p {
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+/* Box Model Visual Indicators */
+.card::before {
+  content: 'Content Area';
+  position: absolute;
+  top: -10px;
+  left: 1rem;
+  background: var(--primary-color);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* ===== BOX MODEL DEMONSTRATION ===== */
+.box-model-demo {
+  overflow: visible;
+}
+
+.box-model-container {
+  margin: 2rem 0;
+  position: relative;
+}
+
+.margin-box {
+  background-color: rgba(255, 193, 7, 0.2);
+  border: 2px dashed #ffc107;
+  padding: 30px;
+  margin: 20px;
+  position: relative;
+  text-align: center;
+  font-weight: 600;
+  color: #ff9800;
+}
+
+.border-box {
+  background-color: rgba(76, 175, 80, 0.2);
+  border: 2px solid #4CAF50;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+  font-weight: 600;
+  color: #388E3C;
+}
+
+.padding-box {
+  background-color: rgba(33, 150, 243, 0.2);
+  border: 2px dashed #2196F3;
+  padding: 15px;
+  position: relative;
+  text-align: center;
+  font-weight: 600;
+  color: #1976D2;
+}
+
+.content-box {
+  background-color: rgba(156, 39, 176, 0.2);
+  border: 2px solid #9C27B0;
+  padding: 20px;
+  text-align: center;
+  font-weight: 600;
+  color: #7B1FA2;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Box model labels */
+.margin-box::before,
+.border-box::before,
+.padding-box::before,
+.content-box::before {
+  position: absolute;
+  background: var(--text-dark);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.margin-box::before {
+  content: 'Margin';
+  top: -25px;
+  left: 10px;
+  background: #ff9800;
+}
+
+.border-box::before {
+  content: 'Border';
+  top: -20px;
+  left: 10px;
+  background: #4CAF50;
+}
+
+.padding-box::before {
+  content: 'Padding';
+  top: -20px;
+  left: 10px;
+  background: #2196F3;
+}
+
+.content-box::before {
+  content: 'Content';
+  top: -20px;
+  left: 10px;
+  background: #9C27B0;
+}
+
+/* ===== INTERACTIVE CONTROLS ===== */
+.controls {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: var(--background-light);
+  border-radius: 0.5rem;
+  border: 2px solid var(--border-color);
+}
+
+/* ===== ACCESSIBILITY IMPROVEMENTS ===== */
+a:focus,
+button:focus,
+input[type="range"]:focus {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
+  box-shadow: 0 0 8px var(--accent-color);
+}
+
+button:focus-visible {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
+  box-shadow: 0 0 8px var(--accent-color);
+}
+
+/* ===== COLOR CONTRAST IMPROVEMENTS ===== */
+nav ul li a {
+  color: var(--text-dark);
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+  color: var(--primary-dark);
+  background: var(--background-light);
+}
+
+/* ===== COMMENTS EXPLAINING BOX MODEL CONCEPTS ===== */
+/* 
+  The CSS Box Model consists of:
+  - Content: The actual content of the box, where text and images appear.
+  - Padding: Space between the content and the border.
+  - Border: The border surrounding the padding (if any).
+  - Margin: Space outside the border, separating the element from others.
+  
+  Use the interactive sliders above to adjust margin, padding, and border widths.
+  Observe how these properties affect the size and spacing of the box.
+*/
+
+.control-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.control-group label {
+  font-weight: 600;
+  color: var(--text-dark);
+  min-width: 80px;
+}
+
+.control-group input[type="range"] {
+  flex: 1;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--border-color);
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.control-group input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: var(--shadow);
+}
+
+.control-group input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: var(--shadow);
+}
+
+.control-group span {
+  font-weight: 600;
+  color: var(--primary-color);
+  min-width: 50px;
+  text-align: right;
+}
+
+/* ===== BUTTON STYLING ===== */
+button {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+/* ===== FOOTER STYLES ===== */
+footer {
+  text-align: center;
+  background: var(--text-dark);
+  color: white;
+  padding: 2rem;
+  margin-top: 3rem;
+  border-top: 4px solid var(--primary-color);
+}
+
+footer p {
+  opacity: 0.9;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  
+  nav ul li a {
+    display: block;
+  }
+  
+  main {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 1.5rem;
+  }
+  
+  header h1 {
+    font-size: 1.75rem;
+  }
+  
+  .card {
+    padding: 1rem;
+    margin: 0.5rem;
+  }
+  
+  button {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}

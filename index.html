@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 3 - CSS Basics & Box Model</title>
+  <!-- Link to external CSS file -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header section -->
+  <header>
+    <h1>My First Styled Web Page</h1>
+    <p>Practicing CSS Basics & the Box Model</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main content -->
+  <main>
+    <section class="card">
+      <h2>About This Page</h2>
+      <p>This page is styled using an external CSS file. It demonstrates the use of colors, fonts, margins, padding, and borders.</p>
+    </section>
+
+    <section class="card">
+      <h2>The Box Model</h2>
+      <p>Every element is a box made of <strong>content</strong>, <strong>padding</strong>, <strong>border</strong>, and <strong>margin</strong>. CSS lets us control each of these layers.</p>
+    </section>
+
+    <section class="card box-model-demo">
+      <h2>Box Model Demonstration</h2>
+      <div class="box-model-container">
+        <div class="margin-box">Margin
+          <div class="border-box">Border
+            <div class="padding-box">Padding
+              <div class="content-box">Content</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <p>This visual demonstrates the different parts of the CSS Box Model.</p>
+    </section>
+
+    <section class="card">
+      <h2>Styled Button Example</h2>
+      <button>Click Me</button>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 My CSS Assignment | Built with ❤️ and CSS</p>
+  </footer>
+
+</body>
+</html>
